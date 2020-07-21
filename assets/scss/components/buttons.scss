@@ -1,17 +1,60 @@
 .btn {
   background-color: transparent;
-  color: $text-white-extra;
+  color: $white-extra;
   transition: .3s;
-  padding: 12px 17px;
+  padding: 12px 18px;
   font-family: Roboto, serif;
   text-align: center;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  letter-spacing: 0.04em;
+  border-radius: 4px;
   text-transform: uppercase;
   outline: none;
-  border-radius: 100px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+.btn-light,
+.btn-outline-light,
+{
+  @extend .btn;
+  background-color: $white;
+}
+.btn-outline-light {
+  background-color: transparent;
+  border: 1px solid $white;
+}
+
+.btn-success,
+.btn-outline-success,
+{
+  @extend .btn;
+  background-color: $success;
+}
+.btn-outline-success {
+  background-color: transparent;
+  border: 1px solid $success;
+}
+
+.btn-primary,
+.btn-outline-primary,
+{
+  @extend .btn;
+  background-color: $primary;
+}
+.btn-outline-primary {
+  background-color: transparent;
+  border: 1px solid $primary;
+}
+
+
+.btn-small {
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.btn-big {
+  padding: 16px 20px;
+  font-size: 16px;
 }

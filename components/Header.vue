@@ -1,21 +1,24 @@
 <template>
   <section id="header" class="container-fluid p-0">
     <div class="container d-flex justify-between align-center">
-      <div>
+      <div class="header-nav-link">
         <nuxt-link
-          v-for="(item, i) in navList"
+          v-for="(navItem, i) in navList"
           :key="i"
-          :to="item.link"
+          :to="navItem.link"
           class="nav-link d-inline"
         >
-          {{item.title.toUpperCase()}}
+          {{navItem.title.toUpperCase()}}
         </nuxt-link>
       </div>
-      <button
-        type="button"
-        class="btn"
-        @click="$emit('action')"
-      >Войти</button>
+      <div class="header-action">
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          @click="$emit('action')"
+        >
+          Войти</button>
+      </div>
     </div>
   </section>
 </template>
