@@ -1,0 +1,17 @@
+#header {
+  background-color: $header-bg;
+  .nav-link{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 26px 17px 24px 17px;
+    color: $text-white;
+  }
+  .nav-link:first-child {
+    margin-left: 0;
+  }
+  .nav-link:last-child {
+    margin-right: 0;
+  }
+}
