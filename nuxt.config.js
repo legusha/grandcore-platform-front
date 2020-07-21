@@ -44,7 +44,7 @@ module.exports = {
     ['nuxt-i18n', I18N],
   ],
   css: [
-    '@/assets/scss/index.scss'
+    '@/assets/scss/main.scss'
   ],
   plugins: [
     '~plugins/app.js',
