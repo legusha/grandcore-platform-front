@@ -29,7 +29,13 @@
     props: {
       navList: {
         type: Array,
-        required: true
+        required: true,
+        title: {
+          type: String
+        },
+        link: {
+          type: String
+        }
       }
     }
   }
