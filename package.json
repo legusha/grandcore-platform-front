@@ -1,8 +1,7 @@
 {
   "name": "grandcore-platform-front",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Nuxt.js project",
-  "author": "Yusif Zourab <wordlearningpress@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -13,11 +12,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
     "nuxt": "^2.0.0",
-    "nuxt-i18n": "^6.13.1",
-    "popper.js": "^1.16.1"
+    "nuxt-i18n": "^6.13.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

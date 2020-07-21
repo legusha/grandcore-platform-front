@@ -37,17 +37,8 @@ module.exports = {
         })
       }
     },
-    vendor: [
-      'jquery',
-      'bootstrap',
-    ],
-    plugins: [
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery'
-      })
-    ]
+    vendor: [],
+    plugins: []
   },
   modules: [
     ['nuxt-i18n', I18N],
@@ -56,7 +47,6 @@ module.exports = {
     '@/assets/scss/index.scss'
   ],
   plugins: [
-    '~plugins/bootstrap.js',
     '~plugins/app.js',
   ]
 }
