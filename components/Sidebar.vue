@@ -8,6 +8,7 @@
         v-for="(navItem, i) in navList"
         :key="i"
         :to="navItem.link"
+        @click.native="$emit('toggle')"
         class="d-inline"
       >
         {{navItem.title.toUpperCase()}}
@@ -15,7 +16,7 @@
     </div>
     <div
       class="sidebar-bg"
-      @click="$emit('toggle', false)"
+      @click="$emit('toggle')"
       :class="{'active-sidebar': active}"
     ></div>
   </div>

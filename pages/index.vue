@@ -8,7 +8,7 @@
       @actionBurger="actionBurger"
     ></Header>
     <Sidebar
-      class="layer-2"
+      :class="{'layer-2': activeBurger}"
       :navList="navList"
       :active="activeBurger"
       @toggle="toggleSidebar"
@@ -55,8 +55,8 @@
       actionBurger () {
         this.activeBurger = !this.activeBurger
       },
-      toggleSidebar (value) {
-        this.activeBurger = value
+      toggleSidebar () {
+        this.activeBurger = !this.activeBurger
       }
     }
   }
