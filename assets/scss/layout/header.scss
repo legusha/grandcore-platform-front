@@ -1,25 +1,27 @@
 #header {
   background-color: $header-bg;
-  .nav-link {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 26px 17px 24px 17px;
-    color: $white;
+  .header-desktop {
+    .nav-link {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 26px 17px 24px 17px;
+      color: $white;
+    }
+    .nav-link:first-child {
+      margin-left: 0;
+    }
+    .nav-link:last-child {
+      margin-right: 0;
+    }
+    .header-action > button {
+      border-radius: 25px;
+      padding: 10px 36px;
+      font-size: 14px;
+    }
   }
-  .nav-link:first-child {
-    margin-left: 0;
-  }
-  .nav-link:last-child {
-    margin-right: 0;
-  }
-  .header-action > button {
-    border-radius: 25px;
-    padding: 10px 36px;
-    font-size: 14px;
-  }
-  .header-logo, .header-action-user {
+  .header-mobile {
     display: none;
   }
 }
