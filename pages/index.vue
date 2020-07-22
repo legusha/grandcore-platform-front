@@ -4,15 +4,21 @@
       :navList="navList"
       @action="headerAction"
     ></Header>
+    <Picture
+      :filename="logo.name"
+      :alt="logo.alt"
+    ></Picture>
   </div>
 </template>
 
 <script>
   import Header from "~/components/Header";
+  import Picture from "~/components/Picture";
   export default {
     name: "Main",
     components: {
-      Header
+      Header,
+      Picture
     },
     data () {
       return {
@@ -33,7 +39,11 @@
             title: 'НОВОСТИ',
             link: ''
           },
-        ]
+        ],
+        logo: {
+          name: 'logo.svg',
+          alt: 'Logo'
+        }
       }
     },
     methods: {
