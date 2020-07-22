@@ -1,10 +1,43 @@
-header {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  background-color: transparent;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 0;
+#header {
+  background-color: $header-bg;
+  .header-desktop {
+    .nav-link {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 26px 17px 24px 17px;
+      color: $white;
+    }
+    .nav-link:first-child {
+      margin-left: 0;
+    }
+    .nav-link:last-child {
+      margin-right: 0;
+    }
+    .header-action > button {
+      border-radius: 25px;
+      padding: 10px 36px;
+      font-size: 14px;
+    }
+  }
+  .header-mobile {
+    display: none;
+    .burger-1, .burger-2, .burger-3 {
+      width: 35px;
+      height: 5px;
+      background-color: $white;
+      margin: 6px 0;
+      transition: 0.3s;
+    }
+    .active .burger-2 {opacity: 0;}
+    .active .burger-1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .active .burger-3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
+    }
+  }
 }

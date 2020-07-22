@@ -1,17 +1,29 @@
 <template>
-  <div>
+  <div class="pos-relative">
     <Header
+      class="pos-relative layer-1"
       :navList="navList"
-      @action="headerAction"
+      :activeBurger="activeBurger"
+      @action="actionHeader"
+      @actionBurger="actionBurger"
     ></Header>
+    <Sidebar
+      :class="{'layer-2': activeBurger}"
+      :navList="navList"
+      :active="activeBurger"
+      @toggle="toggleSidebar"
+    >
+    </Sidebar>
   </div>
 </template>
 
 <script>
   import Header from "~/components/Header";
+  import Sidebar from "~/components/Sidebar";
   export default {
     name: "Main",
     components: {
+      Sidebar,
       Header
     },
     data () {
@@ -33,11 +45,18 @@
             title: 'НОВОСТИ',
             link: ''
           },
-        ]
+        ],
+        activeBurger: false
       }
     },
     methods: {
-      headerAction () {
+      actionHeader () {
+      },
+      actionBurger () {
+        this.activeBurger = !this.activeBurger
+      },
+      toggleSidebar () {
+        this.activeBurger = !this.activeBurger
       }
     }
   }
