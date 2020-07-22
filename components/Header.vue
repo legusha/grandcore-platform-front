@@ -22,6 +22,15 @@
         </div>
       </div>
       <div class="header-mobile d-flex justify-between align-center">
+        <div
+          class="header-burger"
+          :class="{'active': activeBurger}"
+          @click="$emit('actionBurger')"
+        >
+          <div class="burger-1"></div>
+          <div class="burger-2"></div>
+          <div class="burger-3"></div>
+        </div>
         <div class="header-logo">
           <img src="@images/logo-light.svg" alt="Logo">
         </div>
@@ -50,6 +59,10 @@
         link: {
           type: String
         }
+      },
+      activeBurger: {
+        type: Boolean,
+        default: false
       }
     }
   }

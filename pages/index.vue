@@ -2,7 +2,9 @@
   <div>
     <Header
       :navList="navList"
-      @action="headerAction"
+      :activeBurger="activeBurger"
+      @action="actionHeader"
+      @actionBurger="actionBurger"
     ></Header>
   </div>
 </template>
@@ -33,12 +35,15 @@
             title: 'НОВОСТИ',
             link: ''
           },
-        ]
+        ],
+        activeBurger: false
       }
     },
     methods: {
-      headerAction () {
-        console.log('123')
+      actionHeader () {
+      },
+      actionBurger () {
+        this.activeBurger = !this.activeBurger
       }
     }
   }
