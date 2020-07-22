@@ -36,6 +36,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      config.resolve.alias['@images'] = '@/assets/images'
+      config.resolve.alias['@icons'] = '@/assets/icons'
     },
     vendor: [],
     plugins: []

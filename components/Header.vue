@@ -11,6 +11,9 @@
           {{navItem.title.toUpperCase()}}
         </nuxt-link>
       </div>
+      <div class="header-logo">
+        <img src="@images/logo-light.svg" alt="Logo">
+      </div>
       <div class="header-action">
         <button
           type="button"
@@ -18,6 +21,12 @@
           @click="$emit('action')"
         >
           Войти</button>
+        <img
+          class="header-action-user"
+          src="@icons/user.svg"
+          alt="Avatar"
+          @click="$emit('action')"
+        >
       </div>
     </div>
   </section>
