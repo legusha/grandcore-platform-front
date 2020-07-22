@@ -1,19 +1,29 @@
 <template>
-  <div>
+  <div class="pos-relative">
     <Header
+      class="pos-relative layer-1"
       :navList="navList"
       :activeBurger="activeBurger"
       @action="actionHeader"
       @actionBurger="actionBurger"
     ></Header>
+    <Sidebar
+      class="layer-2"
+      :navList="navList"
+      :active="activeBurger"
+      @toggle="toggleSidebar"
+    >
+    </Sidebar>
   </div>
 </template>
 
 <script>
   import Header from "~/components/Header";
+  import Sidebar from "~/components/Sidebar";
   export default {
     name: "Main",
     components: {
+      Sidebar,
       Header
     },
     data () {
@@ -44,6 +54,9 @@
       },
       actionBurger () {
         this.activeBurger = !this.activeBurger
+      },
+      toggleSidebar (value) {
+        this.activeBurger = value
       }
     }
   }
