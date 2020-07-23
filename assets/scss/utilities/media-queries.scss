@@ -1,6 +1,11 @@
 @media(max-width: 1200px) {
 }
 @media(max-width: 992px) {
+  footer {
+    .footer-licence {
+      justify-content: center;
+    }
+  }
 }
 @media(max-width: 768px) {
   header {

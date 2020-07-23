@@ -60,7 +60,7 @@
     z-index: 1;
     top: 0;
     left: -300px;
-    background-color: $header-bg;
+    background-color: $main-bg;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
