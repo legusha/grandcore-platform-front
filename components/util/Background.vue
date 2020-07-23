@@ -25,7 +25,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: $sidebar-bg;
+    background: $dark-bg;
     opacity: 0;
   }
   .bg-dark.bg-dark-active {

@@ -1,9 +1,10 @@
 @import 'utilities/variables';
 
+@import 'layout/content';
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/footer';
-@import 'layout/content';
+@import "layout/sidebar";
 
 @import 'components/buttons';
 

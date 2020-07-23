@@ -1,20 +1,20 @@
 <template>
   <div class="pos-relative main-layout">
     <Background
-      :class="{'layer-2': activeBurger}"
-      :active="activeBurger"
-      @action="toggleSidebar"
+      :class="{'layer-2': active.background}"
+      :active="active.background"
+      @action="toggleBackground"
     ></Background>
     <Header
       class="pos-relative layer-1"
-      :activeBurger="activeBurger"
+      :activeBurger="active.burger"
       :navList="navList"
       @action="actionHeader"
-      @actionBurger="actionBurger"
+      @actionBurger="toggleBurger"
     ></Header>
     <Sidebar
-      :class="{'layer-3': activeBurger}"
-      :active="activeBurger"
+      :class="{'layer-2': active.sidebar}"
+      :active="active.sidebar"
       :navList="navList"
       @toggle="toggleSidebar"
     >
@@ -57,17 +57,32 @@
             link: ''
           },
         ],
-        activeBurger: false
+        active: {
+          background: false,
+          burger: false,
+          sidebar: false
+        }
       }
     },
     methods: {
       actionHeader () {
       },
-      actionBurger () {
-        this.activeBurger = !this.activeBurger
+      toggleActive (prop = 'burger') {
+        this.active[prop] = !this.active[prop]
+      },
+      toggleActiveAll () {
+        for (let prop in this.active) {
+          this.active[prop] = !this.active[prop]
+        }
+      },
+      toggleBurger () {
+        this.toggleActiveAll()
+      },
+      toggleBackground () {
+        this.toggleActiveAll()
       },
       toggleSidebar () {
-        this.activeBurger = !this.activeBurger
+        this.toggleActiveAll()
       }
     }
   }
