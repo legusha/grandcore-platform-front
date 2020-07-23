@@ -1,7 +1,7 @@
 {
   "name": "grandcore-platform-front",
   "version": "0.0.2",
-  "description": "Nuxt.js project",
+  "description": "Grandcore platform,front-end project",
   "private": true,
   "scripts": {
     "dev": "nuxt",
