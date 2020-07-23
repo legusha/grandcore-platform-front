@@ -4,15 +4,17 @@
       class="sidebar-list"
       :class="{'active-sidebar': active}"
     >
-      <nuxt-link
-        v-for="(navItem, i) in navList"
-        :key="i"
-        :to="navItem.link"
-        @click.native="$emit('toggle')"
-        class="d-inline"
-      >
-        {{navItem.title.toUpperCase()}}
-      </nuxt-link>
+      <nav>
+        <nuxt-link
+          v-for="(navItem, i) in navList"
+          :key="i"
+          :to="navItem.link"
+          @click.native="$emit('toggle')"
+          class="d-inline"
+        >
+          {{navItem.title.toUpperCase()}}
+        </nuxt-link>
+      </nav>
     </div>
     <div
       class="sidebar-bg"
@@ -42,13 +44,11 @@
       }
     }
   }
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
 </script>
 
 <style scoped lang="scss">
   @import "~@/assets/scss/utilities/variables";
+
   #sidebar {
     width: 100%;
     height: 100vh;

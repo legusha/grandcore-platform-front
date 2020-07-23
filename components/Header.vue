@@ -1,8 +1,8 @@
 <template>
-  <section id="header" class="container-fluid p-0">
+  <header class="container-fluid p-0">
     <div class="container">
       <div class="header-desktop d-flex justify-between align-center">
-        <div class="header-nav-link">
+        <nav class="header-nav-link">
           <nuxt-link
             v-for="(navItem, i) in navList"
             :key="i"
@@ -11,7 +11,7 @@
           >
             {{navItem.title.toUpperCase()}}
           </nuxt-link>
-        </div>
+        </nav>
         <div class="header-action">
           <button
             type="button"
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
