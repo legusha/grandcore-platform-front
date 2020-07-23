@@ -16,11 +16,6 @@
         </nuxt-link>
       </nav>
     </div>
-    <div
-      class="sidebar-bg"
-      @click="$emit('toggle')"
-      :class="{'active-sidebar': active}"
-    ></div>
   </div>
 </template>
 
@@ -72,17 +67,6 @@
     color: $white;
     display: block;
     transition: 0.3s;
-  }
-  .sidebar-bg {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: $sidebar-bg;
-    opacity: 0;
-  }
-  .sidebar-bg.active-sidebar {
-    opacity: 1;
   }
   .sidebar-list.active-sidebar {
     left: 0;

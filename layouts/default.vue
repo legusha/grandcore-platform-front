@@ -1,16 +1,21 @@
 <template>
-  <div class="pos-relative">
+  <div class="pos-relative main-layout">
+    <Background
+      :class="{'layer-2': activeBurger}"
+      :active="activeBurger"
+      @action="toggleSidebar"
+    ></Background>
     <Header
       class="pos-relative layer-1"
-      :navList="navList"
       :activeBurger="activeBurger"
+      :navList="navList"
       @action="actionHeader"
       @actionBurger="actionBurger"
     ></Header>
     <Sidebar
-      :class="{'layer-2': activeBurger}"
-      :navList="navList"
+      :class="{'layer-3': activeBurger}"
       :active="activeBurger"
+      :navList="navList"
       @toggle="toggleSidebar"
     >
     </Sidebar>
@@ -19,16 +24,18 @@
   </div>
 </template>
 <script>
-  import Header from "~/components/Header";
-  import Sidebar from "~/components/Sidebar";
-  import Footer from "~/components/Footer";
+  import Background from "~/components/util/Background";
+  import Header from "~/components/layout/Header";
+  import Footer from "~/components/layout/Footer";
+  import Sidebar from "~/components/layout/Sidebar";
 
   export default {
     name: "default",
     components: {
-      Sidebar,
+      Background,
       Header,
-      Footer
+      Footer,
+      Sidebar,
     },
     data () {
       return {
