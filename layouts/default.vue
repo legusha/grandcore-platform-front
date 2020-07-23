@@ -12,6 +12,13 @@
       @action="actionHeader"
       @actionBurger="toggleBurger"
     ></Header>
+    <Modal
+      :active="active.modal"
+      @close="modalClose"
+    >
+      <template slot="header">123</template>
+      <template slot="body">123</template>
+    </Modal>
     <Sidebar
       :class="{'layer-2': active.sidebar}"
       :active="active.sidebar"
@@ -19,22 +26,25 @@
       @toggle="toggleSidebar"
     >
     </Sidebar>
-    <nuxt class="pos-relative layer-1"></nuxt>
+    <nuxt class="pos-relative layer-1">
+    </nuxt>
     <Footer class="layer-1"></Footer>
   </div>
 </template>
 <script>
   import Background from "~/components/util/Background";
-  import Header from "~/components/layout/Header";
   import Footer from "~/components/layout/Footer";
+  import Header from "~/components/layout/Header";
+  import Modal from "~/components/util/Modal";
   import Sidebar from "~/components/layout/Sidebar";
 
   export default {
     name: "default",
     components: {
       Background,
-      Header,
       Footer,
+      Header,
+      Modal,
       Sidebar,
     },
     data () {
@@ -60,12 +70,14 @@
         active: {
           background: false,
           burger: false,
-          sidebar: false
+          sidebar: false,
+          modal: false
         }
       }
     },
     methods: {
       actionHeader () {
+        this.toggleActive('modal')
       },
       toggleActive (prop = 'burger') {
         this.active[prop] = !this.active[prop]
@@ -83,6 +95,9 @@
       },
       toggleSidebar () {
         this.toggleActiveAll()
+      },
+      modalClose () {
+        this.toggleActive('modal')
       }
     }
   }
