@@ -1,14 +1,15 @@
 @import 'utilities/variables';
 
-@import 'base/fonts';
-@import 'base/typography';
-
+@import 'layout/content';
 @import 'layout/grid';
 @import 'layout/header';
-@import 'layout/content';
+@import 'layout/footer';
+@import "layout/sidebar";
 
 @import 'components/buttons';
 
+@import 'base/fonts';
+@import 'base/typography';
 @import 'base/common';
 
 @import 'utilities/media-queries';

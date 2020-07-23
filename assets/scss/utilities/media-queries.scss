@@ -1,9 +1,14 @@
 @media(max-width: 1200px) {
 }
 @media(max-width: 992px) {
+  footer {
+    .footer-licence {
+      justify-content: center;
+    }
+  }
 }
 @media(max-width: 768px) {
-  #header {
+  header {
     padding: 15px 0;
     .header-desktop {
       display: none;
@@ -22,7 +27,7 @@
   .container {
     padding: 0 10px;
   }
-  #header {
+  header {
     .header-logo img {
       width: 200px;
     }
