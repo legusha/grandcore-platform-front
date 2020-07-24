@@ -1,6 +1,6 @@
 {
   "name": "grandcore-platform-front",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Grandcore platform,front-end project",
   "private": true,
   "scripts": {
