@@ -4,19 +4,25 @@
     :class="{'modal-active': active}"
   >
     <div class="modal-content">
-      <div class="modal-header">
+      <div
+        class="modal-header text-white d-flex align-center justify-between"
+        :class="chosenColor"
+      >
+        <slot name="header"></slot>
         <span
           class="close"
           @click="$emit('close')"
         >
           &times;
         </span>
-        <slot name="header"></slot>
       </div>
       <div class="modal-body">
         <slot name="body"></slot>
       </div>
-      <div class="modal-footer">
+      <div
+        class="modal-footer text-white"
+        :class="chosenColor"
+      >
         <slot name="footer"></slot>
       </div>
     </div>
@@ -30,78 +36,85 @@
       active: {
         type: Boolean,
         default: false
+      },
+      color: {
+        type: String,
+        default: 'primary'
+      }
+    },
+    data () {
+      return {
+        colors: ['success', 'primary'],
+        applyColor: true
+      }
+    },
+    computed: {
+      chosenColor () {
+        const classes = {}
+        const color = `bg-${this.color}`
+        classes[color] = this.applyColor
+        return classes
       }
     }
   }
 </script>
 
-<style scoped>
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    overflow: auto; /* Enable scroll if needed */
-  }
+<style scoped lang="scss">
+  @import "~@/assets/scss/utilities/variables";
 
-  /* Modal Content */
+  .modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    margin: auto;
+    overflow: auto;
+  }
   .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: $modal-content-bg;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    border: 1px solid $modal-border-color;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: $modal-shadow;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
   }
-
-  /* Add Animation */
   @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
   }
-
   @keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
   }
-
-  /* The Close Button */
   .close {
-    color: white;
-    float: right;
     font-size: 28px;
     font-weight: bold;
   }
-
   .close:hover,
   .close:focus {
-    color: #000;
+    color: $white-extra;
     text-decoration: none;
     cursor: pointer;
   }
-
   .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
   }
-
-  .modal-body {padding: 2px 16px;}
-
+  .modal-body {
+    padding: 2px 16px;
+  }
   .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
   }
-
   .modal-active {
     display: block;
+    bottom: initial;
+    top: 50%;
+    transform: translateY(-50%);
   }
 </style>

@@ -15,11 +15,19 @@
     ></Header>
     <Modal
       :class="{'layer-3': active.modal}"
+      :color="modalColor"
       :active="active.modal"
       @close="modalClose"
     >
-      <template slot="header">123</template>
-      <template slot="body">123</template>
+      <template slot="header">
+        <h2>Header modal</h2>
+      </template>
+      <template slot="body">
+        <p>Content modal</p>
+      </template>
+      <template slot="footer">
+        <h2>Footer modal</h2>
+      </template>
     </Modal>
     <Sidebar
       :class="{'layer-2': active.sidebar}"
@@ -69,6 +77,7 @@
             link: ''
           },
         ],
+        modalColor: 'primary',
         active: {
           background: false,
           burger: false,
