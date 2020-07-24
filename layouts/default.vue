@@ -14,6 +14,7 @@
       @actionBurger="toggleBurger"
     ></Header>
     <Modal
+      :class="{'layer-3': active.modal}"
       :active="active.modal"
       @close="modalClose"
     >
@@ -77,15 +78,11 @@
       }
     },
     methods: {
-      actionHeader () {
-        this.toggleActive('modal')
-      },
-      toggleActive (prop = 'burger') {
-        this.active[prop] = !this.active[prop]
-      },
-      toggleActiveAll () {
+      toggleActive (propsList = []) {
         for (const prop in this.active) {
-          this.active[prop] = !this.active[prop]
+          if (propsList.includes(prop)) {
+            this.active[prop] = !this.active[prop]
+          }
         }
       },
       toggleActiveIgnore (ignore = []) {
@@ -99,11 +96,9 @@
           this.active[prop] = false
         }
       },
-      disableActiveIgnore (ignore = []) {
-        for (const prop in this.active) {
-          if (ignore.includes(prop)) continue
-          this.active[prop] = false
-        }
+      actionHeader () {
+        const active = ['background', 'modal']
+        this.toggleActive(active)
       },
       toggleBurger () {
         const ignore = ['modal']
@@ -117,7 +112,8 @@
         this.disableActiveAll()
       },
       modalClose () {
-        this.toggleActive('modal')
+        const active = ['background', 'modal']
+        this.toggleActive(active)
       }
     }
   }
