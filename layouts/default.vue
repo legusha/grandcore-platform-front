@@ -1,6 +1,7 @@
 <template>
   <div class="pos-relative main-layout">
     <Background
+      v-if="active.background"
       :class="{'layer-2': active.background}"
       :active="active.background"
       @action="toggleBackground"
@@ -83,18 +84,37 @@
         this.active[prop] = !this.active[prop]
       },
       toggleActiveAll () {
-        for (let prop in this.active) {
+        for (const prop in this.active) {
           this.active[prop] = !this.active[prop]
         }
       },
-      toggleBurger () {
-        this.toggleActiveAll()
+      toggleActiveIgnore (ignore = []) {
+        for (const prop in this.active) {
+          if (ignore.includes(prop)) continue
+          this.active[prop] = !this.active[prop]
+        }
       },
-      toggleBackground () {
-        this.toggleActiveAll()
+      disableActiveAll () {
+        for (const prop in this.active) {
+          this.active[prop] = false
+        }
+      },
+      disableActiveIgnore (ignore = []) {
+        for (const prop in this.active) {
+          if (ignore.includes(prop)) continue
+          this.active[prop] = false
+        }
+      },
+      toggleBurger () {
+        const ignore = ['modal']
+        this.toggleActiveIgnore(ignore)
       },
       toggleSidebar () {
-        this.toggleActiveAll()
+        const ignore = ['modal']
+        this.toggleActiveIgnore(ignore)
+      },
+      toggleBackground () {
+        this.disableActiveAll()
       },
       modalClose () {
         this.toggleActive('modal')
